@@ -1,6 +1,9 @@
 package com.example.mymemorybox;
 
-public class Memory {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Memory implements Parcelable {
     private int rating;
     private String name;
     private String desc;
@@ -27,6 +30,43 @@ public class Memory {
         this.desc = "";
         this.imageResourceId = 0;
     }
+
+
+    public static final Parcelable.Creator<Memory> CREATOR = new
+            Parcelable.Creator<Memory>() {
+
+                @Override
+                public Memory createFromParcel(Parcel parcel) {
+                    return new Memory(parcel);
+                }
+
+                @Override
+                public Memory[] newArray(int size) {
+                    return new Memory[0];
+                }
+            };
+
+    public Memory(Parcel parcel) {
+        rating = parcel.readInt();
+        name = parcel.readString();
+        desc = parcel.readString();
+        imageResourceId = parcel.readInt();
+
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(rating);
+        dest.writeString(name);
+        dest.writeString(desc);
+        dest.writeInt(imageResourceId);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
 
     //getters and setters
     public int getRating() {
