@@ -45,4 +45,3 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
 
 
 }
-
