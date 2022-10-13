@@ -49,10 +49,15 @@ public class FirebaseHelper {
     private FirebaseAuth mAuth;
     // we don't need this yet
     // private ArrayList<Memory> myItems = new ArrayList<>();
+    private FirebaseFirestore db;
+    private ArrayList<Memory> myMemories;
 
 
     public FirebaseHelper() {
+        // instantiate arraylist for app use
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        myMemories = new ArrayList<>();
     }
 
 
