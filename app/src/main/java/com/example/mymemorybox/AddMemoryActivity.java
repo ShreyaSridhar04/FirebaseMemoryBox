@@ -48,9 +48,11 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
     // This method is required, even if empty, for the OnItemSelectedListener to work
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
+
     public void addMemoryButtonClicked(View view) {
         String memName = memoryName.getText().toString();
         String memDesc = memoryDesc.getText().toString();
+        spinnerSelectedText = spinner.getSelectedItem().toString();
         int memoryRatingNum = 0;
         // This will take the option they clicked on and ensure it is a number.
 // My options went from 5 to 1, so that is why I have it adjusted with 6-i
